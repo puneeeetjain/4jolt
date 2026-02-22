@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4Jolt Admin Panel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top-header simple">
+    <a class="logo" href="index.html">4Jolt</a>
+    <h1>Admin Panel</h1>
+  </header>
+  <main class="content narrow admin">
+    <section>
+      <h2>Header & Hamburger Menus</h2>
+      <label>Header items (comma-separated)</label>
+      <input id="header-types" />
+      <label>Default selected header item</label>
+      <input id="default-type" />
+      <label>Hamburger items JSON [{"label":"...","href":"..."}]</label>
+      <textarea id="hamburger-items"></textarea>
+    </section>
+
+    <section>
+      <h2>Carousel</h2>
+      <label>Carousel JSON [{"image":"...","href":"..."}]</label>
+      <textarea id="carousel-items"></textarea>
+    </section>
+
+    <section>
+      <h2>Ads</h2>
+      <label>Top banner</label><input id="ad-top" />
+      <label>Middle banner</label><input id="ad-middle" />
+      <label>Bottom banner</label><input id="ad-bottom" />
+      <label>Left vertical</label><input id="ad-left" />
+      <label>Right vertical</label><input id="ad-right" />
+    </section>
+
+    <section>
+      <h2>Categories</h2>
+      <label>Categories JSON [{"id":"...","name":"...","image":"..."}]</label>
+      <textarea id="categories"></textarea>
+    </section>
+
+    <section>
+      <h2>Posts (category + type mapping included)</h2>
+      <label>Posts JSON [{"id","title","categoryId","type","image","excerpt","content","publishAt","status"}]</label>
+      <textarea id="posts"></textarea>
+      <p>Use status <strong>scheduled</strong> with <strong>publishAt</strong> date-time for auto-publish.</p>
+    </section>
+
+    <section>
+      <h2>User Roles</h2>
+      <label>Users JSON [{"name":"...","role":"Editor|Moderator|Admin"}]</label>
+      <textarea id="users"></textarea>
+    </section>
+
+    <section>
+      <h2>Analytics Dashboard</h2>
+      <div class="stats" id="analytics-stats"></div>
+    </section>
+
+    <section>
+      <h2>Backup / Export</h2>
+      <button id="export-json">Export Site Data (JSON)</button>
+      <button id="reset-default">Reset to Defaults</button>
+    </section>
+
+    <button id="save-all">Save All Changes</button>
+  </main>
+
+  <script src="scripts/data.js"></script>
+  <script>
+    const data = getSiteData();
+    ensureScheduledPostsPublished(data);
+    saveSiteData(data);
+
+    const ids = {
+      headerTypes: document.getElementById('header-types'),
+      defaultType: document.getElementById('default-type'),
+      hamburgerItems: document.getElementById('hamburger-items'),
+      carouselItems: document.getElementById('carousel-items'),
+      adTop: document.getElementById('ad-top'),
+      adMiddle: document.getElementById('ad-middle'),
+      adBottom: document.getElementById('ad-bottom'),
+      adLeft: document.getElementById('ad-left'),
+      adRight: document.getElementById('ad-right'),
+      categories: document.getElementById('categories'),
+      posts: document.getElementById('posts'),
+      users: document.getElementById('users'),
+    };
+
+    function prettify(value) {
+      return JSON.stringify(value, null, 2);
+    }
+
+    function loadForm() {
+      ids.headerTypes.value = data.headerTypes.join(', ');
+      ids.defaultType.value = data.defaultType;
+      ids.hamburgerItems.value = prettify(data.hamburgerItems);
+      ids.carouselItems.value = prettify(data.carousel);
+      ids.adTop.value = data.ads.top;
+      ids.adMiddle.value = data.ads.middle;
+      ids.adBottom.value = data.ads.bottom;
+      ids.adLeft.value = data.ads.left;
+      ids.adRight.value = data.ads.right;
+      ids.categories.value = prettify(data.categories);
+      ids.posts.value = prettify(data.posts);
+      ids.users.value = prettify(data.users);
+      document.getElementById('analytics-stats').innerHTML = `
+        <div class="stat">Page Views: ${data.analytics.pageViews}</div>
+        <div class="stat">Active Users: ${data.analytics.activeUsers}</div>
+        <div class="stat">Top Category: ${data.analytics.topCategory}</div>
+      `;
+    }
+
+    document.getElementById('save-all').addEventListener('click', () => {
+      try {
+        data.headerTypes = ids.headerTypes.value.split(',').map((v) => v.trim()).filter(Boolean);
+        data.defaultType = ids.defaultType.value.trim() || data.headerTypes[0] || 'Trending';
+        data.hamburgerItems = JSON.parse(ids.hamburgerItems.value);
+        data.carousel = JSON.parse(ids.carouselItems.value);
+        data.ads.top = ids.adTop.value;
+        data.ads.middle = ids.adMiddle.value;
+        data.ads.bottom = ids.adBottom.value;
+        data.ads.left = ids.adLeft.value;
+        data.ads.right = ids.adRight.value;
+        data.categories = JSON.parse(ids.categories.value);
+        data.posts = JSON.parse(ids.posts.value);
+        data.users = JSON.parse(ids.users.value);
+        ensureScheduledPostsPublished(data);
+        saveSiteData(data);
+        alert('Saved successfully.');
+      } catch (error) {
+        alert('Invalid JSON input: ' + error.message);
+      }
+    });
+
+    document.getElementById('export-json').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = '4jolt-backup.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('reset-default').addEventListener('click', () => {
+      saveSiteData(structuredClone(defaultSiteData));
+      location.reload();
+    });
+
+    loadForm();
+  </script>
+</body>
+</html>

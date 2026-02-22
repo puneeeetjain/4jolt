@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4Jolt | Trending Stories, Videos, Quizzes & Memes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-55J03WQV8W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-55J03WQV8W');
+  </script>
+</head>
+<body>
+  <header class="top-header">
+    <a class="logo" href="index.html" aria-label="4Jolt home">4Jolt</a>
+    <nav class="top-nav" id="header-menu"></nav>
+    <div class="header-actions">
+      <button id="search-toggle" aria-label="Search">🔍</button>
+      <button id="hamburger-toggle" aria-label="Open menu">☰</button>
+    </div>
+    <div id="search-panel" class="search-panel hidden">
+      <input id="search-input" type="search" placeholder="Search all content..." />
+      <div id="search-results"></div>
+    </div>
+    <div id="hamburger-menu" class="hamburger-menu hidden"></div>
+  </header>
+
+  <main class="layout">
+    <aside class="side-ad" id="left-side-ad"></aside>
+
+    <section class="content">
+      <section class="carousel" id="carousel"></section>
+      <section class="ad-banner" data-ad-slot="top"></section>
+
+      <section>
+        <h2>Categories</h2>
+        <div class="grid" id="category-grid"></div>
+      </section>
+
+      <section class="ad-banner" data-ad-slot="middle"></section>
+
+      <section>
+        <h2>Latest Posts</h2>
+        <div class="grid" id="post-grid"></div>
+      </section>
+
+      <section class="ad-banner" data-ad-slot="bottom"></section>
+    </section>
+
+    <aside class="side-ad" id="right-side-ad"></aside>
+  </main>
+
+  <footer class="site-footer">
+    <a class="logo" href="index.html">4Jolt</a>
+    <div class="footer-links">
+      <a href="#">About Us</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Advertise with us</a>
+      <a href="#">Careers</a>
+    </div>
+    <div class="social-links">
+      <a href="#" aria-label="Facebook">Facebook</a>
+      <a href="#" aria-label="Instagram">Instagram</a>
+      <a href="#" aria-label="Twitter">Twitter</a>
+    </div>
+  </footer>
+
+  <script src="scripts/data.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
