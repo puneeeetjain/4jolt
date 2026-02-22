@@ -36,5 +36,6 @@ Then open:
 
 ## Notes
 
+- Rich sample data is preloaded by default (8 categories, 16 posts, multiple menu/carousel/ad entries, and role records).
 - Data is persisted in browser `localStorage` as `fourJoltData`.
 - This is a frontend-focused prototype with a client-side admin panel.
