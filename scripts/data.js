@@ -5,22 +5,19 @@ const defaultSiteData = {
   hamburgerItems: [
     { label: "Admin Panel", href: "admin.html" },
     { label: "About", href: "#" },
-    { label: "Contact", href: "#" },
-    { label: "Advertise", href: "#" },
-    { label: "Careers", href: "#" }
+    { label: "Contact", href: "#" }
   ],
   carousel: [
-    { image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80", href: "#story-tech-trends" },
-    { image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=80", href: "#video-music-fest" },
-    { image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80", href: "#quiz-knowledge" },
-    { image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1400&q=80", href: "#story-travel-hacks" }
+    { image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80", href: "#" },
+    { image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80", href: "#" },
+    { image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80", href: "#" }
   ],
   ads: {
-    top: "Top Campaign Banner — Summer Mega Sale",
-    middle: "Middle Campaign Banner — Partner Promo",
-    bottom: "Bottom Campaign Banner — Newsletter Signup",
-    left: "Left Vertical Ad — Sponsored",
-    right: "Right Vertical Ad — Sponsored"
+    top: "Top Campaign Banner",
+    middle: "Middle Campaign Banner",
+    bottom: "Bottom Campaign Banner",
+    left: "Left Vertical Ad",
+    right: "Right Vertical Ad"
   },
   categories: [
     { id: "cat-tech", name: "Technology", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" },
@@ -33,32 +30,23 @@ const defaultSiteData = {
     { id: "cat-culture", name: "Culture", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80" }
   ],
   posts: [
-    { id: "post-1", title: "Top 5 AI Tools for Everyday Work", categoryId: "cat-tech", type: "Trending", image: "https://images.unsplash.com/photo-1677442135968-6f8e9e4fce4f?auto=format&fit=crop&w=500&q=80", excerpt: "Explore practical AI tools you can use daily.", content: "AI assistants, note-taking copilots, and automation dashboards are changing daily workflows. In this guide we compare practical tools and best use-cases.", publishAt: "", status: "published" },
-    { id: "post-2", title: "How to Start a 10-Minute Morning Routine", categoryId: "cat-life", type: "Stories", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=500&q=80", excerpt: "Build habits with a sustainable routine.", content: "Start with hydration, stretching, and a quick planning ritual. Consistency beats intensity when building routines.", publishAt: "", status: "published" },
-    { id: "post-3", title: "Viral Challenge Roundup", categoryId: "cat-fun", type: "Videos", image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=500&q=80", excerpt: "The latest challenges everyone is talking about.", content: "This week’s internet challenges include dance edits, speed drawing, and reaction compilations.", publishAt: "", status: "published" },
-    { id: "post-4", title: "Ultimate Weekend Quiz", categoryId: "cat-fun", type: "Quizzes", image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=500&q=80", excerpt: "Test your weekend knowledge.", content: "Take this 12-question mix of pop culture and current events to see where you rank.", publishAt: "", status: "published" },
-    { id: "post-5", title: "Best Meme Templates This Week", categoryId: "cat-fun", type: "Memes", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80", excerpt: "Fresh templates to keep your page alive.", content: "From side-eye reaction shots to wholesome twist endings, here are the best meme templates this week.", publishAt: "", status: "published" },
-    { id: "post-6", title: "Simple Home Workout for Beginners", categoryId: "cat-health", type: "Trending", image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=500&q=80", excerpt: "A no-equipment fitness plan.", content: "A beginner circuit using bodyweight only—squats, pushups, planks, and mobility drills.", publishAt: "", status: "published" },
-    { id: "post-7", title: "Street Food Videos You Must Watch", categoryId: "cat-food", type: "Videos", image: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=500&q=80", excerpt: "Visual treat for food lovers.", content: "An irresistible selection of global street food videos with crisp storytelling and vibrant visuals.", publishAt: "", status: "published" },
-    { id: "post-8", title: "Hidden Travel Spots to Bookmark", categoryId: "cat-travel", type: "Stories", image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=500&q=80", excerpt: "Less crowded destinations worth exploring.", content: "Explore quieter destinations, smarter packing workflows, and budget planning shortcuts.", publishAt: "", status: "published" },
-    { id: "post-9", title: "Budget Gadgets Under $25", categoryId: "cat-tech", type: "Trending", image: "https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=500&q=80", excerpt: "Useful mini gadgets worth trying.", content: "A curated list of affordable gadgets that genuinely improve work and everyday productivity.", publishAt: "", status: "published" },
-    { id: "post-10", title: "Late Night Match Highlights", categoryId: "cat-sports", type: "Videos", image: "https://images.unsplash.com/photo-1486286701208-1d58e9338013?auto=format&fit=crop&w=500&q=80", excerpt: "Catch up in 3 minutes.", content: "Quick highlights and tactical recaps from yesterday’s biggest games.", publishAt: "", status: "published" },
-    { id: "post-11", title: "Can You Guess the Country by Food?", categoryId: "cat-food", type: "Quizzes", image: "https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=500&q=80", excerpt: "A tasty geography challenge.", content: "Identify 15 dishes from around the world. Perfect for your next group challenge.", publishAt: "", status: "published" },
-    { id: "post-12", title: "Museum Memes You’ll Relate To", categoryId: "cat-culture", type: "Memes", image: "https://images.unsplash.com/photo-1505664063603-28e48ca204eb?auto=format&fit=crop&w=500&q=80", excerpt: "Art world humor done right.", content: "Classic paintings, modern captions, and surprisingly relatable moments.", publishAt: "", status: "published" },
-    { id: "post-13", title: "Minimal Desk Setup in 2026", categoryId: "cat-tech", type: "Stories", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500&q=80", excerpt: "Calm and productive workspace ideas.", content: "Declutter strategy, cable control, and ergonomic essentials for focused work.", publishAt: "", status: "published" },
-    { id: "post-14", title: "15-Minute Healthy Meal Prep", categoryId: "cat-health", type: "Trending", image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80", excerpt: "Fast meals without compromise.", content: "A realistic meal prep method using pantry basics and batch-friendly recipes.", publishAt: "", status: "published" },
-    { id: "post-15", title: "Spring Festival Behind the Scenes", categoryId: "cat-culture", type: "Videos", image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80", excerpt: "How creators build event magic.", content: "A short documentary-style post on production, rehearsals, and execution.", publishAt: "", status: "published" },
-    { id: "post-16", title: "Next Week’s Mega Quiz", categoryId: "cat-fun", type: "Quizzes", image: "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=500&q=80", excerpt: "Scheduled sample post.", content: "This post demonstrates scheduling and auto-publish in the admin panel.", publishAt: "2030-01-01T10:00", status: "scheduled" }
+    { id: "post-1", title: "Top 5 AI Tools for Everyday Work", categoryId: "cat-tech", type: "Trending", image: "https://images.unsplash.com/photo-1677442135968-6f8e9e4fce4f?auto=format&fit=crop&w=500&q=80", excerpt: "Explore practical AI tools you can use daily.", content: "Detailed content for AI tools post.", publishAt: "", status: "published" },
+    { id: "post-2", title: "How to Start a 10-Minute Morning Routine", categoryId: "cat-life", type: "Stories", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=500&q=80", excerpt: "Build habits with a sustainable routine.", content: "Detailed morning routine post.", publishAt: "", status: "published" },
+    { id: "post-3", title: "Viral Challenge Roundup", categoryId: "cat-fun", type: "Videos", image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=500&q=80", excerpt: "The latest challenges everyone is talking about.", content: "Detailed viral challenge post.", publishAt: "", status: "published" },
+    { id: "post-4", title: "Ultimate Weekend Quiz", categoryId: "cat-fun", type: "Quizzes", image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=500&q=80", excerpt: "Test your weekend knowledge.", content: "Detailed quiz post.", publishAt: "", status: "published" },
+    { id: "post-5", title: "Best Meme Templates This Week", categoryId: "cat-fun", type: "Memes", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80", excerpt: "Fresh templates to keep your page alive.", content: "Detailed meme post.", publishAt: "", status: "published" },
+    { id: "post-6", title: "Simple Home Workout for Beginners", categoryId: "cat-health", type: "Trending", image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=500&q=80", excerpt: "A no-equipment fitness plan.", content: "Detailed workout post.", publishAt: "", status: "published" },
+    { id: "post-7", title: "Street Food Videos You Must Watch", categoryId: "cat-food", type: "Videos", image: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=500&q=80", excerpt: "Visual treat for food lovers.", content: "Detailed street food post.", publishAt: "", status: "published" },
+    { id: "post-8", title: "Hidden Travel Spots to Bookmark", categoryId: "cat-travel", type: "Stories", image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=500&q=80", excerpt: "Less crowded destinations worth exploring.", content: "Detailed travel post.", publishAt: "", status: "published" }
   ],
   users: [
     { name: "Owner", role: "Admin" },
     { name: "Nina", role: "Editor" },
-    { name: "Ravi", role: "Moderator" },
-    { name: "Sana", role: "Editor" }
+    { name: "Ravi", role: "Moderator" }
   ],
   analytics: {
-    pageViews: 24540,
-    activeUsers: 712,
+    pageViews: 12540,
+    activeUsers: 312,
     topCategory: "Technology"
   }
 };
