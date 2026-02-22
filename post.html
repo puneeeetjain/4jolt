@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4Jolt Post</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top-header simple"><a class="logo" href="index.html">4Jolt</a></header>
+  <main class="content narrow" id="post-content"></main>
+  <script src="scripts/data.js"></script>
+  <script>
+    const data = getSiteData();
+    ensureScheduledPostsPublished(data);
+    saveSiteData(data);
+    const id = new URLSearchParams(window.location.search).get('id');
+    const post = data.posts.find((p) => p.id === id);
+    const category = data.categories.find((c) => c.id === post?.categoryId);
+    const container = document.getElementById('post-content');
+    if (!post) {
+      container.innerHTML = '<h1>Post not found</h1><p><a href="index.html">Back to home</a></p>';
+    } else {
+      container.innerHTML = `
+        <h1>${post.title}</h1>
+        <p><a href="category.html?id=${post.categoryId}">← Back to ${category?.name || 'category'}</a> | <a href="index.html">Home</a></p>
+        <img class="hero" src="${post.image}" alt="${post.title}" />
+        <p>${post.content}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
